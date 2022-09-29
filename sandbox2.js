@@ -7,10 +7,15 @@ let cityText = document.getElementById("cityText");
 let fahreneheitText = document.getElementById("fahrenheit");
 let celsiusText = document.getElementById("celsius");
 let kelvin = document.getElementById("kelvin");
+let currentCondition = document.getElementById("currentCondition");
+let conditions = document.getElementById("conditions");
 
+zipcode = document.getElementById("zipcodeInput").value;
+
+// function that validates the zipcode and if not valid, returns an alert
 
 const zipcodeValidation = function () {
-    zipcode = document.getElementById("zipcodeInput").value;
+
     if (zipcode.length === 5 && isNaN(zipcode) === false) {
         console.log("valid zip")
         return true;
@@ -26,12 +31,14 @@ async function getWeatherData() {
     try {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${apiKey}&units=imperial`);
         console.log(response.data);
-        let weatherData = response.data;
-        currentState(weatherData)
+        let data = response.data;
+        currentState(data)
     } catch (error) {
         console.error(error);
     }
 }
+
+// add event listener that runs the zipcodeValidation function and if it passes, then runs the getWeatherData function API call
 
 getWeatherButton.addEventListener("click", () => {
     if (zipcodeValidation()) {
@@ -39,24 +46,31 @@ getWeatherButton.addEventListener("click", () => {
     }
 });
 
+// function that updates the current state of the display
 
-const currentState = function() {
+const currentState = function (data) {
+    let temperature = Math.round(data.main.temp);
     let city = data.name;
-    let kelvin = Math.round(celsius + 273.15);
-    let fahreneheit = Math.round(data.main.temp);
-    let celsius = Math.round((fahreneheit-32) / 1.8);
+    let fahreneheit = Math.round(celsius * 1.8 + 32);
+    let celsius = Math.round(temperature - 273);
     let condition = data.weather[0].description;
     let otherInfo = data.weather[0].icon;
 
-    console.log(currentState);
+    // initial page view before weatherData is returned and after a refresh
 
-}
+    mainHeader.display = "block"; // fills the entire line and nothing can be displayed to the left or right side
+    zipcodeInput.display = "block";
+    getWeatherButton.style.display = "block";
 
+    // take values and populate into the display
 
-// initial page view before weatherData is returned and after a refresh
+    cityText.style.display = "block";
+    cityText.textContent = city;
+    temperatureText.style.display = "block";
+    currentCondition.style.display = "block";
+    conditions.textContent = condition;
+    kelvin.textContent = `${temperature} K`;
+    fahreneheitText.textContent = `${fahreneheit} F`;
+    celsiusText.textContent = `${celsius} C`;
 
-mainHeader.display = "block"; // fills the entire line and nothing can be displayed to the left or right side
-zipcodeInput.display = "block";
-getWeatherButton.style.display = "block";
-
-// values to populate 
+};
