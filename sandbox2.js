@@ -34,7 +34,7 @@ async function getWeatherData() {
         console.log(response.data);
         let data = response.data;
         currentState(data)
-    } catch (error) {
+    } catch {
         console.error(error);
     }
 }
@@ -52,7 +52,7 @@ getWeatherButton.addEventListener("click", () => {
 const currentState = function (data) {
     let temperature = Math.round(data.main.temp);
     let city = data.name;
-    let celsius = Math.round(temperature - 273);
+    let celsius = Math.round((temperature - 32) / 1.8);
     let fahreneheit = Math.round(celsius * 1.8 + 32);
     let condition = data.weather[0].description;
     let icon = data.weather[0].icon;

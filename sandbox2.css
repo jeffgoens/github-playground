@@ -6,6 +6,7 @@ body {
     height: 100%;
     margin: 0;
     background-image: url("cartooncloud.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
 
 }
@@ -22,7 +23,7 @@ body {
 .card2 {
     /* background-color: rgba(145, 145, 145, 0.500); */
     background-color: rgba(206, 202, 202, 0.5);
-    border-radius: 25px;
+    border-radius: 15px;
     width: 90%;
     height: 75%;
     margin-top: 5%;
@@ -36,13 +37,13 @@ body {
     margin-top: 5%;
 }
 
-.card4 {
+/* .card4 {
     background-color: rgba(206, 202, 202, 0.5);
     border-radius: 25px;
     width: 90%;
     height: 75%;
     margin-top: 5%;
-}
+} */
 
 
 .mainHeader {
