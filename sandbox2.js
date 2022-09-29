@@ -9,6 +9,7 @@ let celsiusText = document.getElementById("celsius");
 let kelvin = document.getElementById("kelvin");
 let currentCondition = document.getElementById("currentCondition");
 let conditions = document.getElementById("conditions");
+let imageIcon = document.getElementById("image");
 
 
 
@@ -54,7 +55,8 @@ const currentState = function (data) {
     let celsius = Math.round(temperature - 273);
     let fahreneheit = Math.round(celsius * 1.8 + 32);
     let condition = data.weather[0].description;
-    let otherInfo = data.weather[0].icon;
+    let icon = data.weather[0].icon;
+    let iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
     // initial page view before weatherData is returned and after a refresh
 
@@ -69,8 +71,9 @@ const currentState = function (data) {
     temperatureText.style.display = "block";
     currentCondition.style.display = "block";
     conditions.textContent = condition;
-    kelvin.textContent = `${temperature} K`;
-    fahreneheitText.textContent = `${fahreneheit} F`;
-    celsiusText.textContent = `${celsius} C`;
+    kelvin.textContent = `${temperature} °K`;
+    fahreneheitText.textContent = `${fahreneheit} °F`;
+    celsiusText.textContent = `${celsius} °C`;
+    imageIcon.innerHTML = `<img src = "${iconUrl}"/>`;
 
 };

@@ -12,7 +12,7 @@ body {
 
 
 .card1 {
-    background-color: rgba(145, 145, 145, 0.500);
+    background-color: rgba(206, 202, 202, 0.5);
     border-radius: 25px;
     width: 90%;
     height: 75%;
@@ -20,7 +20,8 @@ body {
 }
 
 .card2 {
-    background-color: rgba(145, 145, 145, 0.500);
+    /* background-color: rgba(145, 145, 145, 0.500); */
+    background-color: rgba(206, 202, 202, 0.5);
     border-radius: 25px;
     width: 90%;
     height: 75%;
@@ -28,7 +29,7 @@ body {
 }
 
 .card3 {
-    background-color: rgba(145, 145, 145, 0.500);
+    background-color: rgba(206, 202, 202, 0.5);
     border-radius: 25px;
     width: 90%;
     height: 75%;
@@ -36,7 +37,7 @@ body {
 }
 
 .card4 {
-    background-color: rgba(145, 145, 145, 0.500);
+    background-color: rgba(206, 202, 202, 0.5);
     border-radius: 25px;
     width: 90%;
     height: 75%;
