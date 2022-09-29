@@ -2,11 +2,11 @@ const apiKey = '31b7dec44d4017661c9be2f158f9ae70';
 document.getElementById("mainHeader").style = mainHeader;
 document.getElementById("zipcodeInput").style = zipcodeInput;
 let getWeatherButton = document.getElementById("getWeather");
-let temperatureText = document.getElementById("temperatureText");
 let cityText = document.getElementById("cityText");
+let temperatureText = document.getElementById("temperatureText");
+let kelvinText = document.getElementById("kelvin");
 let fahreneheitText = document.getElementById("fahrenheit");
 let celsiusText = document.getElementById("celsius");
-let kelvin = document.getElementById("kelvin");
 let currentCondition = document.getElementById("currentCondition");
 let conditions = document.getElementById("conditions");
 let imageIcon = document.getElementById("image");
@@ -53,26 +53,26 @@ const currentState = function (data) {
     let temperature = Math.round(data.main.temp);
     let city = data.name;
     let celsius = Math.round((temperature - 32) / 1.8);
-    let fahreneheit = Math.round(celsius * 1.8 + 32);
+    let kelvin = Math.round(celsius + 273.15);
     let condition = data.weather[0].description;
     let icon = data.weather[0].icon;
     let iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
     // initial page view before weatherData is returned and after a refresh
 
-    mainHeader.display = "block"; // fills the entire line and nothing can be displayed to the left or right side
-    zipcodeInput.display = "block";
-    getWeatherButton.style.display = "block";
+    // mainHeader.display = "block"; // fills the entire line and nothing can be displayed to the left or right side
+    // zipcodeInput.display = "block";
+    // getWeatherButton.style.display = "block";
 
     // take values and populate into the display
 
-    cityText.style.display = "block";
+    // cityText.style.display = "block";
     cityText.textContent = city;
-    temperatureText.style.display = "block";
-    currentCondition.style.display = "block";
+    // temperatureText.style.display = "block";
+    // currentCondition.style.display = "block";
     conditions.textContent = condition;
-    kelvin.textContent = `${temperature} °K`;
-    fahreneheitText.textContent = `${fahreneheit} °F`;
+    kelvinText.textContent = `${kelvin} °K`;
+    fahreneheitText.textContent = `${temperature} °F`;
     celsiusText.textContent = `${celsius} °C`;
     imageIcon.innerHTML = `<img src = "${iconUrl}"/>`;
 
