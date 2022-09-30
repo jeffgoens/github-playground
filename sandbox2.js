@@ -18,7 +18,7 @@ let imageIcon = document.getElementById("image");
 const zipcodeValidation = function () {
     zipcode = document.getElementById("zipcodeInput").value;
     if (zipcode.length === 5 && isNaN(zipcode) === false) {
-        console.log("valid zip")
+        console.log("valid zip string")
         return true;
     } else {
         console.log("invalid zip");
@@ -35,7 +35,9 @@ async function getWeatherData() {
         let data = response.data;
         currentState(data)
     } catch {
+        alert("You have entered an INVALID ZIPCODE. Please try again.")
         console.error(error);
+        alert("You have entered an INVALID ZIPCODE. Please try again.")
     }
 }
 
@@ -77,3 +79,8 @@ const currentState = function (data) {
     imageIcon.innerHTML = `<img src = "${iconUrl}"/>`;
 
 };
+
+document.getElementById("zipcodeInput").addEventListener("click", () =>{
+zipcodeInput.value = ""
+
+});
