@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    background-image: url("cartooncloud.jpg");
+    background-size: cover;
+}
+
+
+.card {
+    background-color: rgba(145, 145, 145, 0.500);
+    border-radius: 25px;
+    width: 90%;
+    height: 75%;
+    margin-top: 5%;
+}
+
+.mainHeader {
+    color: white;
+    margin: 15px;
+}
+
+
+
