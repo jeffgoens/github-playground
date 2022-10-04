@@ -8,11 +8,12 @@
     border-radius: 1em;
     padding: 2em;
     text-align: center;
-    /* box-shadow: 10px 10px 10px; */
+    /* box-shadow: 5px 5px 5px; */
   }
 
-  /* .row {
-    height: 33%;
-  } */
 
+.form-control {
+    font-size: 5rem;
+
+}
 
