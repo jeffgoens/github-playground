@@ -1,26 +1,19 @@
-/* body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-    background-image: url("cartooncloud.jpg");
-    background-size: cover;
-} */
+.card {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 5px; 
+    border-radius: 1em;
+    padding: 2em;
+    text-align: center;
+    /* box-shadow: 5px 5px 5px; */
+  }
 
 
-/* .card {
-    background-color: rgba(145, 145, 145, 0.500);
-    border-radius: 25px;
-    width: 90%;
-    height: 100%;
-    margin-top: 5%;
-}  */
+.form-control {
+    font-size: 5rem;
 
-/* .mainHeader {
-    color: white;
-    margin: 15px;
-}  */
-
+}
 
