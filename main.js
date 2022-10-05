@@ -1,4 +1,4 @@
-function createElement(parentEl, tag, text, className, idName, typeName, styleName) {
+function createElement(parentEl, tag, text, className, idName, cellIndexName, styleName) {
 
     let element = document.createElement(tag)                    // creates element based on tag input    Example 'div' creates a div element
     element.innerText = text                                     // Takes value of text and places it in innerText of   the element being created
@@ -11,8 +11,8 @@ function createElement(parentEl, tag, text, className, idName, typeName, styleNa
         element.setAttribute('id', idName);                      // Set id attribute of element = idName
     }
 
-    if (typeName) {
-        element.setAttribute('type', typeName);
+    if (cellIndexName) {
+        element.setAttribute('cell', cellIndexName);
     }
 
     if (styleName) {
@@ -29,31 +29,34 @@ const mainContainer = document.getElementById('main')            // Main contain
 
 function boardLayout() {
 
-    createElement(mainContainer, 'h1', '', '', '', '', '',);
+    createElement(mainContainer, 'h1', 'Tic Tac Toe', '', '', '', '',);
     createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);
     createElement(mainCard, 'div', '', 'row', 'rowOne', '', 'height: 150px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneA', '', '',);
-    createElement(columnOneA, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnOneA, 'div', '', 'cell', '', '0', 'height: 125px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneB', '', '',);
-    createElement(columnOneB, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnOneB, 'div', '', 'cell', '', '1', 'height: 125px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneC', '', '',);
-    createElement(columnOneC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnOneC, 'div', '', 'cell', '', '2', 'height: 125px',);
 
     createElement(mainCard, 'div', '', 'row', 'rowTwo', '', 'height: 150px',);
     createElement(rowTwo, 'div', '', 'col', 'columnTwoA', '', '',);
-    createElement(columnTwoA, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnTwoA, 'div', '', 'cell', '', '3', 'height: 125px',);
     createElement(rowTwo, 'div', '', 'col', 'columnTwoB', '', '',);
-    createElement(columnTwoB, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnTwoB, 'div', '', 'cell', '', '4', 'height: 125px',);
     createElement(rowTwo, 'div', '', 'col', 'columnTwoC', '', '',);
-    createElement(columnTwoC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnTwoC, 'div', '', 'cell', '', '5', 'height: 125px',);
 
     createElement(mainCard, 'div', '', 'row', 'rowThree', '', 'height: 150px',);
     createElement(rowThree, 'div', '', 'col', 'columnThreeA', '', '',);
-    createElement(columnThreeA, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnThreeA, 'div', '', 'cell', '', '6', 'height: 125px',);
     createElement(rowThree, 'div', '', 'col', 'columnThreeB', '', '',);
-    createElement(columnThreeB, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnThreeB, 'div', '', 'cell', '', '7', 'height: 125px',);
     createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
-    createElement(columnThreeC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(columnThreeC, 'div', 'x', 'cell', '', '8', 'height: 125px',);
+
+    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText','', '',);
+    createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
 
 
 }
