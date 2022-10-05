@@ -29,7 +29,7 @@ const mainContainer = document.getElementById('main')            // Main contain
 
 function boardLayout() {
 
-    createElement(mainContainer, 'h1', '', '', '', '', '',);
+    createElement(mainContainer, 'h1', 'Name goes here', '', '', '', '',);
     createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);
     createElement(mainCard, 'div', '', 'row', 'rowOne', '', 'height: 150px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneA', '', '',);
