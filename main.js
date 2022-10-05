@@ -39,6 +39,23 @@ function boardLayout() {
     createElement(rowOne, 'div', '', 'col', 'columnOneC', '', '',);
     createElement(columnOneC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
 
+    createElement(mainCard, 'div', '', 'row', 'rowTwo', '', 'height: 150px',);
+    createElement(rowTwo, 'div', '', 'col', 'columnTwoA', '', '',);
+    createElement(columnTwoA, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(rowTwo, 'div', '', 'col', 'columnTwoB', '', '',);
+    createElement(columnTwoB, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(rowTwo, 'div', '', 'col', 'columnTwoC', '', '',);
+    createElement(columnTwoC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+
+    createElement(mainCard, 'div', '', 'row', 'rowThree', '', 'height: 150px',);
+    createElement(rowThree, 'div', '', 'col', 'columnThreeA', '', '',);
+    createElement(columnThreeA, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(rowThree, 'div', '', 'col', 'columnThreeB', '', '',);
+    createElement(columnThreeB, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+    createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
+    createElement(columnThreeC, 'input', '', 'form-control', '', 'text', 'height: 125px',);
+
+
 }
 
 boardLayout();
