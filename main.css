@@ -1,0 +1,19 @@
+.card {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 5px; 
+    border-radius: 1em;
+    padding: 2em;
+    text-align: center;
+    /* box-shadow: 5px 5px 5px; */
+  }
+
+
+.form-control {
+    font-size: 5rem;
+
+} 
+ 
