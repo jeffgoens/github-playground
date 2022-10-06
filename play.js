@@ -68,7 +68,7 @@ const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
 const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-let options = ["", "", "", "", "", "", "", "", ""];
+let boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
 
@@ -85,7 +85,7 @@ function intializeGame() {
 function cellClicked() {
     const cellIndex = this.getAttribute("cellIndex");
 
-    if (options[cellIndex] != "" || !running) {
+    if (boardPlaceholder[cellIndex] != "" || !running) {
         return;
     }
     updateCell(this, cellIndex);
@@ -93,7 +93,7 @@ function cellClicked() {
 }
 
 function updateCell(cell, index) {
-    options[index] = currentPlayer;
+    boardPlaceholder[index] = currentPlayer;
     cell.innerText = currentPlayer;                               // updated textContent to innerText
 }
 
@@ -107,9 +107,9 @@ function checkWinner() {
 
     for(let i = 0; i < winConditions.length; i++) {
         const condition = winConditions[i];
-        const cellA = options[condition[0]];
-        const cellB = options[condition[1]];
-        const cellC = options[condition[2]];
+        const cellA = boardPlaceholder[condition[0]];
+        const cellB = boardPlaceholder[condition[1]];
+        const cellC = boardPlaceholder[condition[2]];
 
         if(cellA == "" || cellB == "" || cellC == "") {
             continue;
@@ -124,8 +124,8 @@ function checkWinner() {
         statusText.innerText = `${currentPlayer} wins!`;                 // updated textContent to innerText     
         running = false;
     }
-    else if(!options.includes("")) {
-        statusText.innerText = 'Game is a Draw!';                        // updated textContent to innerText
+    else if(!boardPlaceholder.includes("")) {
+        statusText.innerText = 'Game is a Draw!';                       // updated textContent to innerText
         running = false;
     }
     else {
@@ -135,7 +135,7 @@ function checkWinner() {
 
 function restartGame() {
     currentPlayer = "X";
-    options = ["", "", "", "", "", "", "", "", ""];
+    boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
     statusText.innerText = `${currentPlayer}'s turn`;                     // updated textContent to innerText
     cells.forEach(cell => cell.innerText = "");                           // updated textContent to innerText
     running = true;
