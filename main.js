@@ -12,7 +12,7 @@ function createElement(parentEl, tag, text, className, idName, cellIndexName, st
     }
 
     if (cellIndexName) {
-        element.setAttribute('cell', cellIndexName);
+        element.setAttribute('cellIndex', cellIndexName);
     }
 
     if (styleName) {
@@ -55,10 +55,38 @@ function boardLayout() {
     createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
     createElement(columnThreeC, 'div', 'x', 'cell', '', '8', 'height: 125px',);
 
-    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText','', '',);
+    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText', '', '',);
     createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
-
 
 }
 
 boardLayout();
+
+const cells = document.querySelectorAll(".cell");
+const statusText = document.querySelector("#statusText");
+const restartBtn = document.querySelector("#restartBtn");
+const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+let options = ["", "", "", "", "", "", "", "", ""];
+let currentPlayer = "X";
+let running = false;
+
+intializeGame();
+
+function intializeGame() {
+    cells.forEach(cell => cell.addEventListener("click", cellClicked));
+    restartBtn.addEventListener("click", restartGame);
+    statusText.textContent = `${currentPlayer}'s turn`;
+    running = true;
+}
+
+function cellClicked() {
+    const cellIndex = this.getAttribute("cellIndex");
+
+    if (options[cellIndex] != "" || !running) {
+        return;
+    }
+    updateCell(this, cellIndex);
+    checkWinner();
+}
+
+
