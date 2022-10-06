@@ -55,7 +55,7 @@ function boardLayout() {
     createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
     createElement(columnThreeC, 'div', 'x', 'cell', '', '8', 'height: 125px',);
 
-    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText','', '',);
+    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText', '', '',);
     createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
 
 }
@@ -85,7 +85,8 @@ function cellClicked() {
     if (options[cellIndex] != "" || !running) {
         return;
     }
+    updateCell(this, cellIndex);
+    checkWinner();
 }
 
-updateCell(this, cellIndex);
-checkWinner();
+
