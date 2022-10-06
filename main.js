@@ -89,4 +89,9 @@ function cellClicked() {
     checkWinner();
 }
 
+function updateCell(cell, index) {
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
+}
+
 
