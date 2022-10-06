@@ -1,7 +1,7 @@
 function createElement(parentEl, tag, text, className, idName, cellIndexName, styleName) {
 
     let element = document.createElement(tag)                    // creates element based on tag input    Example 'div' creates a div element
-    element.innerText = text                                     // Takes value of text and places it in innerText of   the element being created
+    element.innerText = text                                     // Takes value of text and places it in innerText of the element being created
 
     if (className) {                                             // If className exists
         element.setAttribute('class', className);                // Set class attribute of element = className
@@ -53,9 +53,9 @@ function boardLayout() {
     createElement(rowThree, 'div', '', 'col', 'columnThreeB', '', '',);
     createElement(columnThreeB, 'div', '', 'cell', '', '7', 'height: 125px',);
     createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
-    createElement(columnThreeC, 'div', 'x', 'cell', '', '8', 'height: 125px',);
+    createElement(columnThreeC, 'div', '', 'cell', '', '8', 'height: 125px',);
 
-    createElement(mainContainer, 'h2', 'What goes here', '', 'statusText', '', '',);
+    createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);
     createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
 
 }
@@ -75,8 +75,9 @@ intializeGame();
 function intializeGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartBtn.addEventListener("click", restartGame);
-    statusText.textContent = `${currentPlayer}'s turn`;
+    statusText.innerText = `${currentPlayer}'s turn`;               // updated textContent to innerText
     running = true;
+    console.log(currentPlayer);
 }
 
 function cellClicked() {
@@ -91,7 +92,49 @@ function cellClicked() {
 
 function updateCell(cell, index) {
     options[index] = currentPlayer;
-    cell.textContent = currentPlayer;
+    cell.innerText = currentPlayer;                               // updated textContent to innerText
 }
 
+function changePlayer() {
+    currentPlayer = (currentPlayer == "X") ? "O" : "X";
+    statusText.innerText = `${currentPlayer}'s turn`;             // updated textContent to innerText
+}
 
+function checkWinner() {
+    let roundWon = false;
+
+    for(let i = 0; i < winConditions.length; i++) {
+        const condition = winConditions[i];
+        const cellA = options[condition[0]];
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+
+        if(cellA == "" || cellB == "" || cellC == "") {
+            continue;
+        }
+        if(cellA == cellB && cellB == cellC) {
+            roundWon = true;
+            break;
+        }
+    }
+
+    if(roundWon) {
+        statusText.innerText = `${currentPlayer} wins!`;                 // updated textContent to innerText     
+        running = false;
+    }
+    else if(!options.includes("")) {
+        statusText.innerText = 'Game is a Draw!';                        // updated textContent to innerText
+        running = false;
+    }
+    else {
+        changePlayer();
+    }
+}
+
+function restartGame() {
+    currentPlayer = "X";
+    options = ["", "", "", "", "", "", "", "", ""];
+    statusText.innerText = `${currentPlayer}'s turn`;                     // updated textContent to innerText
+    cells.forEach(cell => cell.innerText = "");                           // updated textContent to innerText
+    running = true;
+}
