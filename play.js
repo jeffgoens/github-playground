@@ -56,7 +56,7 @@ function boardLayout() {
     createElement(columnThreeC, 'div', '', 'cell', '', '8', 'height: 125px',);
 
     createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);
-    createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
+    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-info btn-lg', 'restartBtn', '', '',);
 
   
 

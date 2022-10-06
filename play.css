@@ -4,6 +4,10 @@ body {
     background-size: cover;
 }
 
+h1, h2 {
+    line-height: 70px;
+}
+
 
 .card {
     background-color: white;
@@ -14,6 +18,7 @@ body {
     border-width: 5px; 
     border-radius: 1em;
     padding: 2em;
+    /* justify-content: center; */
     /* text-align: center; */
     box-shadow: 0px 0px 5px;
   }
@@ -23,7 +28,7 @@ body {
     background-color: rgb(135, 206, 250);
     /* height: px; */
     border: 1px solid;
-    line-height: 75px;
+    line-height: 100px;
     font-size: 120px;
     cursor: pointer;
     text-align: center;
