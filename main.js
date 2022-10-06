@@ -12,7 +12,7 @@ function createElement(parentEl, tag, text, className, idName, cellIndexName, st
     }
 
     if (cellIndexName) {
-        element.setAttribute('cell', cellIndexName);
+        element.setAttribute('cellIndex', cellIndexName);
     }
 
     if (styleName) {
@@ -58,7 +58,7 @@ function boardLayout() {
     createElement(mainContainer, 'h2', 'What goes here', '', 'statusText','', '',);
     createElement(mainContainer, 'button', 'Restart', 'btn btn-primary btn-lg', 'restartBtn', '', '',);
 
-
 }
 
 boardLayout();
+
