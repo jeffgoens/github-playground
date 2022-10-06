@@ -100,3 +100,41 @@ function changePlayer() {
     statusText.innerText = `${currentPlayer}'s turn`;             // updated textContent to innerText
 }
 
+function checkWinner() {
+    let roundWon = false;
+
+    for(let i = 0; i < winConditions.length; i++) {
+        const condition = winConditions[i];
+        const cellA = options[condition[0]];
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+
+        if(cellA == "" || cellB == "" || cellC == "") {
+            continue;
+        }
+        if(cellA == cellB && cellB == cellC) {
+            roundWon = true;
+            break;
+        }
+    }
+
+    if(roundWon) {
+        statusText.innerText = `${currentPlayer} wins!`;                 // updated textContent to innerText     
+        running = false;
+    }
+    else if(!options.includes("")) {
+        statusText.innerText = 'Game is a Draw!';                        // updated textContent to innerText
+        running = false;
+    }
+    else {
+        changePlayer();
+    }
+}
+
+function restartGame() {
+    currentPlayer = "X";
+    options = ["", "", "", "", "", "", "", "", ""];
+    statusText.innerText = `${currentPlayer}'s turn`;                     // updated textContent to innerText
+    cells.forEach(cell => cell.innerText = "");                           // updated textContent to innerText
+    running = true;
+}
